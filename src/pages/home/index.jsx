@@ -53,7 +53,7 @@ const Home = ({ children }) => {
     const input = e.target;
     if (input.checked) {
       if (input.id === "notes") {
-        setMask(false)
+        setMask(true)
         setTriggerNotes(true);
       } else if (input.id === "opitions") {
         navigate("/home/settings");
@@ -61,7 +61,7 @@ const Home = ({ children }) => {
         setMask(true)
       } else if (input.id === "editNote") {
         setTriggerNotes(false);
-        setMask(true)
+        setMask(false)
       } else if (input.id === "user") {
         setTriggerNotes(false);
       }
