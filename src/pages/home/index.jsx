@@ -22,6 +22,7 @@ const Home = ({ children }) => {
   const navigate = useNavigate();
 
   const [triggerTextarea, setTriggerTextarea] = useState(false);
+  const [ isMask, setMask ] = useState(false);
 
   const [triggerNotes, setTriggerNotes] = useState(false);
 
@@ -52,12 +53,15 @@ const Home = ({ children }) => {
     const input = e.target;
     if (input.checked) {
       if (input.id === "notes") {
+        setMask(false)
         setTriggerNotes(true);
       } else if (input.id === "opitions") {
         navigate("/home/settings");
         setTriggerNotes(false);
+        setMask(true)
       } else if (input.id === "editNote") {
         setTriggerNotes(false);
+        setMask(true)
       } else if (input.id === "user") {
         setTriggerNotes(false);
       }
@@ -68,7 +72,7 @@ const Home = ({ children }) => {
     <Main>
       <AnimatePresence>{children}</AnimatePresence>
 
-      <Mask />
+    {isMask && <Mask onClick={() => setMask(false)}/> }
       <Navbar handleNavbarItens={handleNavbarItens} />
 
       {triggerNotes && (
