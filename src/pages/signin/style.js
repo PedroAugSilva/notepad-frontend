@@ -25,6 +25,8 @@ export const LoginArea = styled.div`
     }
     @media screen and (max-width: 719px) {
       box-shadow: none;
+      width: 95%;
+      height: 100%;
     }
 `
 export const Title = styled.h2`
@@ -35,6 +37,10 @@ export const Title = styled.h2`
     font-size: 21pt;
     margin: 1rem 0px;
   }
+  @media screen and (max-width: 719px) {
+      margin: 2rem 0;
+      font-size: 20pt;
+    }
 `
 
 export const LabelArea = styled.div`
@@ -94,5 +100,9 @@ export const Input = styled.input`
   @media screen and (min-width: 1800px){
     height: 45px;
     font-size: 13pt;
+  }
+  @media screen and (max-width: 719px){
+    height: 60px;
+    font-size: 15pt;
   }
 `;

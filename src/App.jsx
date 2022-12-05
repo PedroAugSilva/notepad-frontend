@@ -12,7 +12,7 @@ function App() {
   const [themeSelected, setThemeSelected] = usePersistedState('theme',light);
 
   return (
-    <ThemeProvider theme={themeSelected}>
+    <ThemeProvider theme={dark}>
       <AuthProvider>
         <NoteProvider>
           <AnimateSharedLayout>

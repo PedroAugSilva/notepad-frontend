@@ -13,6 +13,9 @@ export const ButtonStyle = styled.button`
     @media screen and (min-width: 1800px){
         height: 45px;
     }
+    @media screen and (max-width: 719px) {
+        height: 60px;
+    }
     :hover{
         background-color: ${props => props.theme.colors.buttonSecundary};
     }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 import useAuth from "../../hooks/useAuth";
@@ -22,6 +22,8 @@ const Home = ({ children }) => {
   const navigate = useNavigate();
 
   const [triggerTextarea, setTriggerTextarea] = useState(false);
+  const [ mask, setMask ] = useState(false)
+  const [ ref, setRef ] = useState();
 
   const [triggerNotes, setTriggerNotes] = useState(false);
 
@@ -30,10 +32,7 @@ const Home = ({ children }) => {
   const [idNote, setIdNote] = useState();
 
   const handleNewNote = async () => {
-    
-
     await addNote();
-
   };
 
   const handleSave = async () => {
@@ -50,26 +49,33 @@ const Home = ({ children }) => {
 
   const handleNavbarItens = (e) => {
     const input = e.target;
+    // if (ref.editNoteRef.checked) {
+    //   setTriggerNotes(false);
+    //   setMask(false)
+    // }
     if (input.checked) {
-      if (input.id === "notes") {
+      if(input.id === "editNote"){
+           setTriggerNotes(false);
+           setMask(false)
+      }
+      else if (input.id === "notes") {
         setTriggerNotes(true);
+        setMask(true)
       } else if (input.id === "opitions") {
         navigate("/home/settings");
         setTriggerNotes(false);
-      } else if (input.id === "editNote") {
-        setTriggerNotes(false);
-      } else if (input.id === "user") {
-        setTriggerNotes(false);
+        setMask(true)
       }
     }
   };
+
 
   return (
     <Main>
       <AnimatePresence>{children}</AnimatePresence>
 
-      <Mask />
-      <Navbar handleNavbarItens={handleNavbarItens} />
+      {mask && <Mask /> }
+      <Navbar handleNavbarItens={handleNavbarItens} setInputRef={setRef}/>
 
       {triggerNotes && (
         <ListNotes
