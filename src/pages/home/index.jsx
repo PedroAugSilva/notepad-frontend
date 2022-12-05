@@ -23,7 +23,7 @@ const Home = ({ children }) => {
 
   const [triggerTextarea, setTriggerTextarea] = useState(false);
   const [ mask, setMask ] = useState(false)
-  const [ ref, setRef ] = useState();
+  
 
   const [triggerNotes, setTriggerNotes] = useState(false);
 
@@ -75,7 +75,7 @@ const Home = ({ children }) => {
       <AnimatePresence>{children}</AnimatePresence>
 
       {mask && <Mask /> }
-      <Navbar handleNavbarItens={handleNavbarItens} setInputRef={setRef}/>
+      <Navbar handleNavbarItens={handleNavbarItens} />
 
       {triggerNotes && (
         <ListNotes

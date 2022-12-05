@@ -9,12 +9,11 @@ import {
 import { CgNotes } from "react-icons/cg";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { MdNotes } from "react-icons/md";
-import { useRef, useEffect } from "react";
 
 
-const Navbar = ({  handleNavbarItens, setInputRef }) => {
-  const ref = useRef(null);
-  setInputRef(ref.current)
+
+const Navbar = ({  handleNavbarItens }) => {
+  
   
   return (
     <NavbarStyle>
@@ -25,7 +24,6 @@ const Navbar = ({  handleNavbarItens, setInputRef }) => {
         name="radio"
         type="radio"
         id="editNote"
-        ref={ref}
         onChange={(e) => handleNavbarItens(e)}
       />
       <ItemLabel htmlFor="notes">
