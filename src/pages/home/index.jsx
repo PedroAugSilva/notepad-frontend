@@ -97,6 +97,7 @@ const Home = ({ children }) => {
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
+              placehoder="Untitled..."
               value={title}
             />
             <TextArea
