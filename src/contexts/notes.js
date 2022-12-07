@@ -35,8 +35,8 @@ export const NoteProvider = ({ children }) => {
 
   const addNote = async () => {
     await api.post("/note", {
-      title: "Untitled...",
-      content: "Type you note...",
+      title: "",
+      content: "",
       fk_user_id: user[0]._id
     });
     refresh();
